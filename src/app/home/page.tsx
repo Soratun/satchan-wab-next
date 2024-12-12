@@ -1,9 +1,11 @@
 "use client";
 import React, { useEffect, useState } from "react";
+import { useRouter } from "next/navigation"; // สำหรับการเปลี่ยนหน้า
 import Image from "next/image";
 import classNames from "classnames"; // npm install classnames
 
 const Home = () => {
+    const router = useRouter();
     const [countdown, setCountdown] = useState({
         days: 0,
         hours: 0,
@@ -13,7 +15,7 @@ const Home = () => {
     const [imageIndex, setImageIndex] = useState(0);
     const totalImages = 6;
 
-    const targetDate = new Date("2024-12-13 00:00:00").getTime();
+    const targetDate = new Date("2024-12-12 15:28:00").getTime();
 
     // Image rotation effect
     useEffect(() => {
@@ -29,6 +31,12 @@ const Home = () => {
             const now = new Date().getTime();
             const timeLeft = targetDate - now;
 
+            if (timeLeft <= 0) {
+                clearInterval(intervalId);
+                router.push("/Countdown"); // ไปยังหน้า `/celebration` เมื่อเวลาหมด
+                return;
+            }
+
             const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
             const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
             const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
@@ -37,7 +45,7 @@ const Home = () => {
             setCountdown({ days, hours, minutes, seconds });
         }, 500);
         return () => clearInterval(intervalId);
-    }, [targetDate]);
+    }, [targetDate, router]);
 
     return (
         <>
@@ -46,19 +54,19 @@ const Home = () => {
                     <h1 className="text-4xl font-bold mt-3">
                         Countdown Happy Birthday Satchan BNK48
                     </h1>
-                    <div className="relative w-[600px] h-[600px] overflow-hidden ">
+                    <div className="relative w-[600px] h-[600px] overflow-hidden shadow-lg">
                         {[...Array(totalImages)].map((_, index) => (
                             <Image
                                 key={index}
                                 src={`/img/${index + 1}.png`}
                                 alt={`Satchan BNK48 ${index}`}
-                                layout="fill" // ให้ภาพเต็มพื้นที่กรอบ
-                                objectFit="contain" // ปรับภาพให้พอดีกรอบโดยไม่ครอบ
+                                layout="fill"
+                                objectFit="contain"
                                 className={classNames(
                                     "absolute transition-opacity duration-1000 ease-in-out",
                                     {
-                                        "opacity-100": index === imageIndex, // แสดงภาพปัจจุบัน
-                                        "opacity-0": index !== imageIndex,  // ซ่อนภาพอื่น
+                                        "opacity-100": index === imageIndex,
+                                        "opacity-0": index !== imageIndex,
                                     }
                                 )}
                             />
