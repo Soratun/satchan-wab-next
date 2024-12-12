@@ -49,12 +49,12 @@ const Home = () => {
 
     return (
         <>
-            <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-br from-[#FFD08F] to-[#F26B9C] bg-fixed text-white">
+            <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-br from-[#FFD08F] to-[#F26B9C] bg-fixed text-white p-4">
                 <div className="flex flex-col items-center justify-center text-center space-y-6">
-                    <h1 className="text-4xl font-bold mt-3">
+                    <h1 className="text-3xl md:text-4xl font-bold mt-3">
                         Countdown Happy Birthday Satchan BNK48
                     </h1>
-                    <div className="relative w-[600px] h-[600px] overflow-hidden shadow-lg">
+                    <div className="relative w-full max-w-[400px] md:max-w-[600px] h-[400px] md:h-[600px] overflow-hidden shadow-lg">
                         {[...Array(totalImages)].map((_, index) => (
                             <Image
                                 key={index}
@@ -73,34 +73,35 @@ const Home = () => {
                         ))}
                     </div>
 
-                    <div className="flex justify-center space-x-4">
-                        <div className="countdown-box">
-                            <span id="days" className="text-4xl font-semibold">
+                    <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                        <div className="countdown-box text-center">
+                            <span id="days" className="text-3xl md:text-4xl font-semibold">
                                 {countdown.days}
                             </span>
-                            <p className="text-sm uppercase">Days</p>
+                            <p className="text-xs md:text-sm uppercase">Days</p>
                         </div>
-                        <div className="countdown-box">
-                            <span id="hours" className="text-4xl font-semibold">
+                        <div className="countdown-box text-center">
+                            <span id="hours" className="text-3xl md:text-4xl font-semibold">
                                 {countdown.hours}
                             </span>
-                            <p className="text-sm uppercase">Hours</p>
+                            <p className="text-xs md:text-sm uppercase">Hours</p>
                         </div>
-                        <div className="countdown-box">
-                            <span id="minutes" className="text-4xl font-semibold">
+                        <div className="countdown-box text-center">
+                            <span id="minutes" className="text-3xl md:text-4xl font-semibold">
                                 {countdown.minutes}
                             </span>
-                            <p className="text-sm uppercase">Minutes</p>
+                            <p className="text-xs md:text-sm uppercase">Minutes</p>
                         </div>
-                        <div className="countdown-box">
-                            <span id="seconds" className="text-4xl font-semibold">
+                        <div className="countdown-box text-center">
+                            <span id="seconds" className="text-3xl md:text-4xl font-semibold">
                                 {countdown.seconds}
                             </span>
-                            <p className="text-sm uppercase">Seconds</p>
+                            <p className="text-xs md:text-sm uppercase">Seconds</p>
                         </div>
                     </div>
                 </div>
             </div>
+
         </>
     );
 };
