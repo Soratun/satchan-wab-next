@@ -2,20 +2,39 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+*{
+  box-sizing: border-box;
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+.countdown-box {
+  @apply bg-white/20 text-white border-2 border-white/30 rounded-lg p-4 w-24 flex flex-col items-center shadow-lg transition-transform transform hover:scale-105;
+}
+
+.fade {
+  opacity: 0; /* เริ่มต้นแบบโปร่งใส */
+  transition: opacity 1s ease-in-out; /* กำหนดระยะเวลาแอนิเมชัน */
+}
+
+.fade.show {
+  opacity: 1; /* แสดงรูปภาพ */
+}
+
+
+.hidden {
+  display: none;
+}
+
+
+canvas#fireworksCanvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
 }
