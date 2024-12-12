@@ -3,6 +3,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import Fireworks from 'fireworks-js';
 import classNames from 'classnames';
 import Image from 'next/image';
+import TypingEffect from '../../../components/TypingEffect';
 
 const Countdown = () => {
     const fireworksContainerRef = useRef<HTMLDivElement>(null);
@@ -51,6 +52,8 @@ const Countdown = () => {
         return () => clearInterval(intervalId);
     }, [totalImages]);
 
+    
+
     return (
         <>
             <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-br from-[#FFD08F] to-[#F26B9C] bg-fixed text-white p-4">
@@ -61,9 +64,7 @@ const Countdown = () => {
                 ></div>
 
                 {/* Title */}
-                <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold mt-3 text-center">
-                    Happy Birthday Satchan BNK48
-                </h1>
+                <TypingEffect />
 
                 {/* Image Carousel */}
                 <div className="relative w-full max-w-[300px] sm:max-w-[400px] md:max-w-[500px] lg:max-w-[700px] h-[300px] sm:h-[400px] md:h-[500px] lg:h-[700px] overflow-hidden mt-8">
