@@ -52,7 +52,7 @@ const Countdown = () => {
     }, [totalImages]);
 
     const [displayText, setDisplayText] = useState(""); // ข้อความที่จะแสดง
-  const fullText = "H appy Birthday Satchan BNK48"; // ข้อความต้นฉบับ
+  const fullText = "H APPY BIRTHDAY SATCHAN BNK48"; // ข้อความต้นฉบับ
   const typingSpeed = 100; // ความเร็วในการพิมพ์ (ms)
   const currentIndex = useRef(0); // ใช้ useRef เก็บดัชนี
 

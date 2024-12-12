@@ -52,7 +52,7 @@ const Home = () => {
             <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-br from-[#FFD08F] to-[#F26B9C] bg-fixed text-white p-4">
                 <div className="flex flex-col items-center justify-center text-center space-y-6">
                     <h1 className="text-3xl md:text-4xl font-bold mt-3">
-                        Countdown Happy Birthday Satchan BNK48
+                        Countdown HAPPY BIRTHDAY SATCHAN BNK48
                     </h1>
                     <div className="relative w-full max-w-[400px] md:max-w-[600px] h-[400px] md:h-[600px] overflow-hidden shadow-lg">
                         {[...Array(totalImages)].map((_, index) => (
