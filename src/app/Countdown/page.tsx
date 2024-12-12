@@ -3,7 +3,6 @@ import React, { useEffect, useRef, useState } from 'react';
 import Fireworks from 'fireworks-js';
 import classNames from 'classnames';
 import Image from 'next/image';
-import TypingEffect from '../../../components/TypingEffect';
 
 const Countdown = () => {
     const fireworksContainerRef = useRef<HTMLDivElement>(null);
