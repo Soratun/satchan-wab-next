@@ -11,11 +11,28 @@ const Countdown = () => {
     if (fireworksContainerRef.current) {
       // เริ่มต้น fireworks เมื่อเข้าหน้านี้
       const fireworks = new Fireworks(fireworksContainerRef.current, {
-        maxRockets: 5,         // จำนวนลูกไฟสูงสุด
-        rocketSpawnInterval: 150, // ช่วงเวลาการสร้างลูกไฟ
-        numParticles: 100,    // จำนวนอนุภาคของลูกไฟ
-        explosionMinHeight: 0.2,  // ความสูงขั้นต่ำ
-        explosionMaxHeight: 0.9,  // ความสูงสูงสุด
+        // maxRockets: 5,         // จำนวนลูกไฟสูงสุด
+        // rocketSpawnInterval: 150, // ช่วงเวลาการสร้างลูกไฟ
+        // numParticles: 100,    // จำนวนอนุภาคของลูกไฟ
+        // explosionMinHeight: 0.2,  // ความสูงขั้นต่ำ
+        rocketsPoint: {
+          min: 1,
+          max: 5
+        },         // จำนวนลูกไฟสูงสุด
+        hue: {
+          min: 10,
+          max: 150
+        }, // ช่วงเวลาการสร้างลูกไฟ
+        delay: {
+          min: 50,
+          max: 100
+        },    // จำนวนอนุภาคของลูกไฟ
+        lineWidth: {
+          explosion: {
+            min: 1,
+            max: 3
+          }
+        },  // ความสูงขั้นต่ำ
       });
       
       fireworks.start();  // เริ่มแสดงลูกไฟ
